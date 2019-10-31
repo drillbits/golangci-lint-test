@@ -1,0 +1,10 @@
+name: "Run golangci-lint"
+author: "drillbits"
+inputs:
+  golangci_lint_args:
+    default: ""
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.golangci_lint_args }}

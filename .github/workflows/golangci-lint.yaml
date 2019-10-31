@@ -1,0 +1,20 @@
+name: golangci-lint
+on: [pull_request]
+jobs:
+  foo-lint:
+    name: runner / foo-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/workflows/golangci-lint-action
+        with:
+          golangci_lint_args: "-v --config=.golangci.yaml ./src/foo/..."
+
+  bar-lint:
+    name: runner / bar-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: ./.github/workflows/golangci-lint-action
+        with:
+          golangci_lint_args: "-v --config=.golangci.yaml ./src/bar/..."
